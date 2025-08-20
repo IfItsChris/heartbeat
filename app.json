@@ -1,8 +1,9 @@
 {
   "expo": {
-    "name": "daily-checkin",
-    "slug": "daily-checkin",
+    "name": "heartbeat",
+    "slug": "heartbeat",
     "version": "1.0.0",
+    "entryPoint": "./app/App.jsx",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "dailycheckin",
@@ -33,7 +34,8 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-      ]
+      ],
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true
