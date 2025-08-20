@@ -1,11 +1,11 @@
 import AntDesign from "@expo/vector-icons/AntDesign";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { LinearGradient } from "expo-linear-gradient";
 import * as Location from "expo-location";
 import * as Notifications from "expo-notifications";
 import { useRouter } from "expo-router";
 import { useEffect, useMemo, useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 import ButtonSVG from "../assets/images/button.png";
 import ButtonSVGPressed from "../assets/images/button_pressed.png";
 export default function App() {
@@ -18,7 +18,7 @@ export default function App() {
   const [frequencyHours, setFrequencyHours] = useState(24);
   const [alertDelayHours, setAlertDelayHours] = useState(24);
   const [buttonImage, setButtonImage] = useState("");
-
+  const insets = useSafeAreaInsets();
   // load state
   useEffect(() => {
     setButtonImage(ButtonSVG);
@@ -89,12 +89,8 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <LinearGradient
-        // Background Linear Gradient
-        colors={['rgba(230,57,70,0.5)','transparent', 'transparent','transparent']}
-        style={{position: "absolute", bottom: 0, left: 0, height: "100%", width: "100%"}}
-      />
+    <SafeAreaView edges={[]} style={styles.container}>
+      
       <View style={{ flex: 1, padding: 40 }}>
         <View style={{ flex: 1,   }}>
           <Text
@@ -145,7 +141,7 @@ export default function App() {
           justifyContent: "space-between",
           paddingHorizontal: 30,
           paddingVertical: 20,
-          backgroundColor: "#d1d1d1",
+          backgroundColor: "#e5e5e5ff",
           borderRadius: 25,
         }}
       >
@@ -205,11 +201,10 @@ export default function App() {
           <Text>Einstellungen</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, position: "relative", },
-
+  container: { flex: 1, position: "relative", top: 0 }
 });
