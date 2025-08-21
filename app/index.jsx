@@ -1,11 +1,15 @@
 import AntDesign from "@expo/vector-icons/AntDesign";
+import EvilIcons from "@expo/vector-icons/EvilIcons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as Location from "expo-location";
 import * as Notifications from "expo-notifications";
 import { useRouter } from "expo-router";
 import { useEffect, useMemo, useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
+import {
+  SafeAreaView,
+  useSafeAreaInsets,
+} from "react-native-safe-area-context";
 import ButtonSVG from "../assets/images/button.png";
 import ButtonSVGPressed from "../assets/images/button_pressed.png";
 export default function App() {
@@ -90,9 +94,8 @@ export default function App() {
 
   return (
     <SafeAreaView edges={[]} style={styles.container}>
-      
       <View style={{ flex: 1, padding: 40 }}>
-        <View style={{ flex: 1,   }}>
+        <View style={{ flex: 1 }}>
           <Text
             style={{
               fontSize: 32,
@@ -105,7 +108,7 @@ export default function App() {
           <Text>Du hast heute noch nicht eingecheckt.</Text>
         </View>
 
-        <View style={{ flex: 2,  alignItems: "center" }}>
+        <View style={{ flex: 2, alignItems: "center" }}>
           <TouchableOpacity
             activeOpacity={1}
             onPressIn={(e) => {
@@ -118,17 +121,51 @@ export default function App() {
             <Image source={buttonImage} />
           </TouchableOpacity>
         </View>
-        <View style={{ flex: 2}}>
+        <View style={{ flex: 2 }}>
           <Text
             style={{
               fontSize: 32,
               fontFamily: "Nunito_400Regular",
-              
             }}
           >
             Letzter Check-In:
           </Text>
-          <View style={{borderRadius: 25,width: "100%", height: "60%", backgroundColor: "#ffeaeaff"}}></View>
+          <View
+            style={{
+              marginTop: 10,
+              borderRadius: 25,
+              width: "100%",
+              height: "60%",
+              backgroundColor: "#ffeaeaff",
+            }}
+          >
+            <View
+              style={{
+                alignItems: "center",
+                height: "50%",
+                padding: 10,
+                borderBottomColor: "white",
+                borderBottomWidth: 5,
+                flexDirection: "row",
+              }}
+            >
+              <EvilIcons name="clock" size={60} color="black" />
+              <Text>Gestern, 17:11 Uhr</Text>
+            </View>
+            <View
+              style={{
+                alignItems: "center",
+                height: "50%",
+                padding: 10,
+                borderTopColor: "white",
+                borderTopWidth: 5,
+                flexDirection: "row"
+              }}
+            >
+              <EvilIcons name="location" size={60} color="black" />
+              <Text>Vogesenstraße 31, 12345 Musterstadt</Text>
+            </View>
+          </View>
         </View>
       </View>
       <View
@@ -153,7 +190,9 @@ export default function App() {
             alignItems: "center",
             alignSelf: "center",
           }}
-          onPress={() => {router.navigate('/activity')}}
+          onPress={() => {
+            router.navigate("/activity");
+          }}
         >
           <AntDesign name="barschart" size={30} color="black" />
           <Text>Aktivität</Text>
@@ -177,7 +216,7 @@ export default function App() {
               height: 80,
               width: 80,
               borderRadius: 80,
-              justifyContent: "center"
+              justifyContent: "center",
             }}
           >
             <AntDesign
@@ -189,15 +228,13 @@ export default function App() {
           </TouchableOpacity>
         </View>
 
-
         <TouchableOpacity
           style={{
             width: "30%",
             alignItems: "center",
             alignSelf: "center",
           }}
-                    onPress={() => router.navigate("/settings")}
-
+          onPress={() => router.navigate("/settings")}
         >
           <AntDesign name="setting" size={30} color="black" />
           <Text>Einstellungen</Text>
@@ -208,5 +245,5 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, position: "relative", top: 0 }
+  container: { flex: 1, position: "relative", top: 0 },
 });
