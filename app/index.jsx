@@ -102,6 +102,7 @@ export default function App() {
           >
             Hallo,{"\n"}Christina 👋
           </Text>
+          <Text>Du hast heute noch nicht eingecheckt.</Text>
         </View>
 
         <View style={{ flex: 2,  alignItems: "center" }}>
@@ -127,6 +128,7 @@ export default function App() {
           >
             Letzter Check-In:
           </Text>
+          <View style={{borderRadius: 25,width: "100%", height: "60%", backgroundColor: "#ffeaeaff"}}></View>
         </View>
       </View>
       <View
